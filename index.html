@@ -1,41 +1,49 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta http-equiv="Content-Style-Type" content="text/css">
-    <title></title>
-    <meta name="Generator" content="Cocoa HTML Writer">
-    <meta name="CocoaVersion" content="1894.6">
-    <style type="text/css">
-      span.s1 {font-kerning: none}
-    </style>
-  </head>
-  <body>
-    <h1 style="margin: 0.0px 272.0px 45.3px 0.0px; text-align: center; line-height: 49.0px; font: 45.3px Avenir; color: #a77b80; -webkit-text-stroke: #ab2838">
-      <span class="s1">
-          <b>
-            Find 
-          </b>
-        <a href="me.html">
-          <b>
-            me
-          </b>
-        </a>
-        <b> 
-          ...
-          <span class="Apple-converted-space">
-          </span>
-        </b>
-      </span>
-    </h1>
-    <h2 style="margin: 0.0px 0.0px 40.0px 120.0px; text-align: center; line-height: 44.0px; font: 40.0px Times; color: #a77b80; -webkit-text-stroke: #ab2838">
-      <span class="s1"><a href="https://github.com/helenadworak">
-        <b>coding</b></a>
-        <b>
-          <span class="Apple-converted-space"> 
-          </span>
-        </b>
-      </span>
-    </h2>
-  </body>
-</html>
+---
+layout: default
+make-smaller-titles: true
+---
+
+
+<div class="container-fluid index">
+    <div class="row">
+
+        <div class="col-md-12 main content-panel">
+
+            <div class="gravatar">
+                <img src="{{ site.title_image }}" class="img-circle about-image" height="150" width="150" alt="{{ site.title }}" />
+            </div>
+
+            <h1 class="header author-header" itemprop="headline">{{ site.title }}</h1>
+
+            <div class="author-text">
+                {{ site.title_description }}
+            </div>
+
+            {% include social_links.html %}
+          </div>
+          <div class="col-md-12 main content-panel">
+
+            <div class="articles">
+
+              <h2>Latest Articles</h2>
+
+              <ul>
+                  {% for post in site.posts limit: site.post_limit %}
+
+                      <li>
+                          <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+                          <small class="hidden-xs">{{ post.date | date: "%B %-d, %Y" }}</small>
+                      </li>
+
+                  {% endfor %}
+                  <li>
+                      <small><i><a href="{{ site.baseurl }}/posts/">more...</a></i></small>
+                  </li>
+              </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
